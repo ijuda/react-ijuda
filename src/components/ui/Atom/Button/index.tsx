@@ -1,11 +1,23 @@
-import * as C from "./styles";
+import PrimaryButton from "./Primary";
+import SecondaryButton from "./secondary";
+import TertiaryButton from "./Tertiary";
 
 type Props = {
-  children: string;
+  content: string;
+  type: "primary" | "secondary" | "tertiary";
 };
 
-const Button = ({ children }: Props) => {
-  return <C.Button>{children}</C.Button>;
+const Button = ({ type, content }: Props) => {
+  switch (type) {
+    case "primary":
+      return <PrimaryButton children={content} />;
+    case "secondary":
+      return <SecondaryButton children={content} />;
+    case "tertiary":
+      return <TertiaryButton children={content} />;
+    default:
+      return <span>No Buttons</span>;
+  }
 };
 
 export default Button;
