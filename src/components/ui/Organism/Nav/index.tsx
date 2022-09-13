@@ -10,7 +10,7 @@ const Nav = () => {
       </C.LogoContainer>
       <C.NavLinkContainer>
         <Button type="tertiary" content="Entrar" />
-        <Button type="primary" content="Trabalhe Conosco"/>
+        <Button type="primary" content="Trabalhe Conosco" />
       </C.NavLinkContainer>
     </C.Nav>
   );
