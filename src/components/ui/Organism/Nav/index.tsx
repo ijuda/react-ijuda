@@ -1,5 +1,5 @@
 import Button from "../../Atom/Button";
-import Logo from "../../Atom/Logo/Index";
+import Logo from "../../Atom/Logo";
 import * as C from "./styles";
 
 const Nav = () => {
