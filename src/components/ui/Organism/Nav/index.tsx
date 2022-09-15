@@ -1,16 +1,22 @@
-import Button from "../../Atom/Button";
-import Logo from "../../Atom/Logo";
+import Button from "@components/ui/Atom/Button";
+import Logo from "@components/ui/Atom/Logo";
+import { RouteCodes as route } from "@constants/routes";
+import { Link } from "react-router-dom";
 import * as C from "./styles";
 
 const Nav = () => {
   return (
     <C.Nav>
-      <C.LogoContainer href="#">
+      <Link to={route.HOME}>
         <Logo />
-      </C.LogoContainer>
+      </Link>
       <C.NavLinkContainer>
-        <Button type="tertiary" content="Entrar" />
-        <Button type="primary" content="Trabalhe Conosco" />
+        <Link to={route.LOGIN}>
+          <Button type="tertiary" content="Entrar" />
+        </Link>
+        <Link to={route.REGISTER}>
+          <Button type="primary" content="Trabalhe Conosco" />
+        </Link>
       </C.NavLinkContainer>
     </C.Nav>
   );

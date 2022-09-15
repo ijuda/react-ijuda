@@ -1,14 +1,15 @@
 import { ThemeProvider } from "styled-components";
-import colors from "../../styles/colors/colors";
-import Global from "../../styles/global.styles";
-import Home from "../Home";
+import colors from "@styles/colors/colors";
+import Global from "@styles/global.styles";
 
-function App() {
+type Props = {
+  children?: any;
+};
+
+function App({ children }: Props) {
   return (
     <ThemeProvider theme={colors}>
-      <div className="App">
-        <Home />
-      </div>
+      <div className="App">{children}</div>
       <Global />
     </ThemeProvider>
   );
