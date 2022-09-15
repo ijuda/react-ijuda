@@ -1,4 +1,4 @@
-import Nav from "../Nav";
+import Nav from "@components/ui/Organism/Nav";
 import * as C from "./styles";
 
 const Header = () => {

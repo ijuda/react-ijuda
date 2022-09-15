@@ -3,12 +3,14 @@
     "baseUrl": "./src",
     "paths": {
       "@containers/*": ["./containers/*"],
-      "@components/*": ["./components/*"]
+      "@components/*": ["./components/*"],
+      "@styles/*": ["./styles/*"],
+      "@constants/*": ["./constants/*"],
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
