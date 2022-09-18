@@ -6,6 +6,7 @@
       "@components/*": ["./components/*"],
       "@styles/*": ["./styles/*"],
       "@constants/*": ["./constants/*"],
+      "@assets/*": ["./assets/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
