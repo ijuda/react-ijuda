@@ -11,11 +11,11 @@ export const Nav = styled.nav`
   }
 `;
 
-export const LogoContainer = styled.a`
+export const LogoContainer = styled.link`
   cursor: pointer;
 `;
 
-export const NavLinkContainer = styled.a`
+export const NavLinkContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 4rem;

@@ -5,6 +5,7 @@ import Facebook from "@assets/Social/Facebook";
 import Google from "@assets/Social/Google";
 import Linkedin from "@assets/Social/Linkedin";
 import * as C from "./styles";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -36,7 +37,7 @@ const Login = () => {
             <Button content="Entrar" type="secondary" />
           </C.Form>
           <C.RegisterLink>
-            Não possui conta? <a href="#">Cadastre-se</a>.
+            Não possui conta? <Link to={'/register'}>Cadastre-se</Link>.
           </C.RegisterLink>
         </C.FormBox>
       </C.FormContainer>
