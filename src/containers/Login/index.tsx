@@ -1,9 +1,9 @@
 import Button from "@components/ui/Atom/Button";
 import Input from "@components/ui/Atom/Input";
 import Logo from "@components/ui/Atom/Logo";
-import Facebook from "@assets/Social/Facebook.svg";
-import Google from "@assets/Social/Google.svg";
-import Linkedin from "@assets/Social/Linkedin.svg";
+import Facebook from "@assets/Social/Facebook";
+import Google from "@assets/Social/Google";
+import Linkedin from "@assets/Social/Linkedin";
 import * as C from "./styles";
 
 const Login = () => {
@@ -16,9 +16,9 @@ const Login = () => {
         <C.FormBox>
           <C.Title>Conecte-se</C.Title>
           <C.SocialLogin>
-            <img src={Google} alt="" width={"40px"} />
-            <img src={Linkedin} alt="" width={"40px"} />
-            <img src={Facebook} alt="" width={"40px"} />
+            <Google />
+            <Linkedin />
+            <Facebook />
           </C.SocialLogin>
           <C.Form>
             <Input
@@ -35,7 +35,9 @@ const Login = () => {
             />
             <Button content="Entrar" type="secondary" />
           </C.Form>
-          <C.RegisterLink>Não possui conta? <a href="#">Cadastre-se</a>.</C.RegisterLink>
+          <C.RegisterLink>
+            Não possui conta? <a href="#">Cadastre-se</a>.
+          </C.RegisterLink>
         </C.FormBox>
       </C.FormContainer>
     </C.LoginContainer>

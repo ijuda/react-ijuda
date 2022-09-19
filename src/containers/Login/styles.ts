@@ -11,8 +11,7 @@ export const LoginContainer = styled.div`
 
 export const FormContainer = styled.div`
   display: flex;
-  max-width: 105rem;
-  height: 43rem;
+  height: 48rem;
 `;
 
 export const LogoBox = styled.div`
@@ -23,8 +22,8 @@ export const LogoBox = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 10rem;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
 `;
 
 export const FormBox = styled.div`
@@ -32,9 +31,9 @@ export const FormBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40rem;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  width: 50rem;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 `;
 
 export const Title = styled.span`
@@ -60,9 +59,10 @@ export const Form = styled.form`
 
 export const RegisterLink = styled.p`
   font-size: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 
   a {
     color: #81d8f7;
+    font-weight: bold;
   }
 `;
