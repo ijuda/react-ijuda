@@ -4,23 +4,23 @@ import Login from "@containers/Login";
 import {
   BrowserRouter as Router,
   Route,
-  Routes as Rtes,
+  Routes,
 } from "react-router-dom";
 import { RouteCodes } from "@constants/routes";
 import Register from "@containers/Register";
 
-const Routes = () => {
+const AppRoutes = () => {
   return (
     <Router>
       <App>
-        <Rtes>
+        <Routes>
           <Route path={RouteCodes.HOME} element={<Home />} />
           <Route path={RouteCodes.LOGIN} element={<Login />} />
           <Route path={RouteCodes.REGISTER} element={<Register />} />
-        </Rtes>
+        </Routes>
       </App>
     </Router>
   );
 };
 
-export default Routes;
+export default AppRoutes;

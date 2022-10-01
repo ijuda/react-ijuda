@@ -22,6 +22,9 @@ export default defineConfig({
         find: "@constants",
         replacement: resolve(__dirname, "./src/constants"),
       },
+      { find: "@hooks", replacement: resolve(__dirname, "./src/hooks") },
+      { find: "@types", replacement: resolve(__dirname, "./src/types") },
+      { find: "@contexts", replacement: resolve(__dirname, "./src/contexts") },
     ],
   },
 });

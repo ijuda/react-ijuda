@@ -15,7 +15,7 @@ export const FormContainer = styled.div`
 `;
 
 export const LogoBox = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary_dark};
+  background-color: #f76707;
   flex-grow: 0;
   text-align: center;
   display: flex;
@@ -59,10 +59,15 @@ export const Form = styled.form`
 
 export const RegisterLink = styled.p`
   font-size: 1.5rem;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 
   a {
     color: #81d8f7;
     font-weight: bold;
+  }
+  span {
+    &:hover {
+      color: #f76707;
+    }
   }
 `;
