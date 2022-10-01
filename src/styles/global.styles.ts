@@ -10,7 +10,7 @@ export default createGlobalStyle`
   html {
     font-size: 62.5%;
     overflow-x: hidden;
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: black;
     color: #FFF;
   }
   body {

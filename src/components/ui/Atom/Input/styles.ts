@@ -10,7 +10,7 @@ export const Input = styled.input`
 
   &:focus {
     outline: none !important;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.primary_dark};
+    box-shadow: 0 0 0 2px #F76707;
   }
 
   &::placeholder {

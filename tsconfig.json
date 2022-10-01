@@ -6,7 +6,10 @@
       "@components/*": ["./components/*"],
       "@styles/*": ["./styles/*"],
       "@constants/*": ["./constants/*"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./assets/*"],
+      "@types/*": ["./types/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@contexts/*": ["./contexts/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -24,7 +27,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "themes"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "files": ["src/styles/styled.d.ts"]
 }
