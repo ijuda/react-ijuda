@@ -1,6 +1,6 @@
-import { ThemeProvider } from "styled-components";
-import colors from "@styles/colors/colors";
+import { ThemeProvider } from "@mui/material";
 import Global from "@styles/global.styles";
+import { DarkTheme } from "@styles/themes/Dark";
 
 type Props = {
   children?: any;
@@ -8,7 +8,7 @@ type Props = {
 
 function App({ children }: Props) {
   return (
-    <ThemeProvider theme={colors}>
+    <ThemeProvider theme={DarkTheme}>
       <div className="App">{children}</div>
       <Global />
     </ThemeProvider>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background-color: ${({ theme }) => theme.colors.primary_dark};
+  background-color: #F76707;
   border: none;
   font-size: 1.5rem;
   font-weight: 500;
@@ -13,6 +13,6 @@ export const Button = styled.button`
   margin-top: 1rem;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: #FD7E14;
   }
 `;
