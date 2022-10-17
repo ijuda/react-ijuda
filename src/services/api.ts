@@ -1,9 +1,14 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: process.env.IJUDA_APP_API,
+  baseURL: "http://localhost:8090",
   auth: {
-    username: process.env.IJUDA_APP_API_USER as any,
-    password: process.env.IJUDA_APP_API_PASS as any,
+    username: "admin",
+    password: "admin",
+  },
+  params: {
+    grant_type: "password",
+    username: "admin@email.com",
+    password: "admin",
   },
 });

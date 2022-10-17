@@ -4,21 +4,20 @@ import Linkedin from "@assets/Social/Linkedin";
 import Logo from "@components/ui/Atom/Logo";
 import { Box, Button, Link } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
-// import { api } from "services/api";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { api } from "../../services/api";
 import * as C from "./styles";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const auth = useContext(AuthContext);
 
-  // const handleLogin = async () => {
-  //   const data = {
-  //     email,
-  //     password,
-  //   };
-  //   const response = await api.get("/auth");
-  // };
+  const handleLogin = async () => {
+    const response = await api.post("/oauth/token", {});
+    console.log(response.data);
+  };
 
   return (
     <C.LoginContainer>
@@ -59,7 +58,7 @@ const Login = () => {
             />
           </Box>
           <Box width={250} mt={3}>
-            <Button variant="contained" fullWidth>
+            <Button variant="contained" fullWidth onClick={handleLogin}>
               Entrar
             </Button>
           </Box>
