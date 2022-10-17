@@ -6,7 +6,6 @@ import { Box, Button, Link } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { api } from "../../services/api";
 import * as C from "./styles";
 
 const Login = () => {
@@ -15,8 +14,7 @@ const Login = () => {
   const auth = useContext(AuthContext);
 
   const handleLogin = async () => {
-    const response = await api.post("/oauth/token", {});
-    console.log(response.data);
+    auth.signIn(email, password);
   };
 
   return (

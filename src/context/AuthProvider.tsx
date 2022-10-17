@@ -1,7 +1,6 @@
-import { RouteCodes } from "@constants/routes";
-import { User } from "../types/User";
 import { useState } from "react";
-import { api } from "../services/api";
+import { doLogin } from "../services/auth/doLogin";
+import { User } from "../types/User";
 import { AuthContext } from "./AuthContext";
 
 type Props = {
@@ -12,13 +11,9 @@ const AuthProvider = ({ children }: Props) => {
   const [user, setUser] = useState<User | null>(null);
 
   const signIn = async (email: string, password: string) => {
-    const response = await api.post(RouteCodes.AUTH, { email, password });
+    const response = await doLogin(email, password);
     console.log(response.data);
-    if (response.data.user && response.data.token) {
-      setUser(response.data.user);
-      return true;
-    }
-    return false;
+    return true;
   };
 
   const signOut = () => {
