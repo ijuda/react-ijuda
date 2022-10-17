@@ -28,7 +28,6 @@ const Login = () => {
         <C.FormBox>
           <C.Title>Conecte-se</C.Title>
           <C.SocialLogin>
-            §
             <Google />
             <Linkedin />
             <Facebook />
