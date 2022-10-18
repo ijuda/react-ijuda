@@ -5,16 +5,24 @@ import Logo from "@components/ui/Atom/Logo";
 import { Box, Button, Link } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
+import { AuthContext } from "../../context/auth/AuthContext";
 import * as C from "./styles";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const auth = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    auth.signIn(email, password);
+    const data = {
+      email,
+      password,
+    };
+
+    await signIn(data);
   };
 
   return (
@@ -53,6 +61,7 @@ const Login = () => {
               fullWidth
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              onKeyUp={(e) => (e.key == "Enter" ? handleLogin() : "")}
             />
           </Box>
           <Box width={250} mt={3}>
