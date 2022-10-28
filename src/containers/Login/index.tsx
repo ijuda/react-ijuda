@@ -2,19 +2,16 @@ import Facebook from "@assets/Social/Facebook";
 import Google from "@assets/Social/Google";
 import Linkedin from "@assets/Social/Linkedin";
 import Logo from "@components/ui/Atom/Logo";
+import { useAuth } from "@context/auth/AuthProvider";
 import { Box, Button, Link } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { api } from "../../services/api";
-import { AuthContext } from "../../context/auth/AuthContext";
 import * as C from "./styles";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signIn } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { signIn } = useAuth();
 
   const handleLogin = async () => {
     const data = {
