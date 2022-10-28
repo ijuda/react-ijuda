@@ -9,7 +9,8 @@
       "@assets/*": ["./assets/*"],
       "@types/*": ["./types/*"],
       "@hooks/*": ["./hooks/*"],
-      "@contexts/*": ["./contexts/*"]
+      "@context/*": ["./context/*"],
+      "@services/*": ["./services/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

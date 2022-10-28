@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material";
 import Global from "@styles/global.styles";
 import { DarkTheme } from "@styles/themes/Dark";
-import AuthProvider from "../../context/AuthProvider";
+import AuthProvider from "@context/auth/AuthProvider";
 
 type Props = {
   children?: any;
