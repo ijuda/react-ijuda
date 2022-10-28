@@ -23,9 +23,13 @@ export default defineConfig({
         replacement: resolve(__dirname, "./src/constants"),
       },
       { find: "@hooks", replacement: resolve(__dirname, "./src/hooks") },
-      { find: "@types", replacement: resolve(__dirname, "./src/types") },
+      {
+        find: "@contracts",
+        replacement: resolve(__dirname, "./src/types"),
+      },
       { find: "@context", replacement: resolve(__dirname, "./src/context") },
       { find: "@services", replacement: resolve(__dirname, "./src/services") },
+      { find: "@api", replacement: resolve(__dirname, "./src/api") },
     ],
   },
 });
