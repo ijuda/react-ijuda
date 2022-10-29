@@ -6,8 +6,8 @@ import { RouteCodes } from "@constants/routes";
 import Register from "@containers/Register";
 import RequireAuth from "@containers/RequireAuth";
 import Profile from "@containers/Profile";
-import RegisterClient from "@containers/Register/RegisterClient";
-import RegisterEmployee from "@containers/Register/RegisterEmployee";
+import RegisterClient from "@containers/RegisterClient";
+import RegisterEmployee from "@containers/RegisterEmployee";
 
 const AppRoutes = () => {
   return (

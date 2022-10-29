@@ -123,7 +123,7 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
                 Entrar
               </Button>
             </Link>
-            <Link to={route.REGISTER}>
+            <Link to={route.REGISTER_EMPLOYEE}>
               <Button
                 sx={{ fontSize: "1.5rem", padding: "1.5rem" }}
                 variant="contained"
