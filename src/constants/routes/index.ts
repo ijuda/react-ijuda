@@ -1,10 +1,10 @@
 const HOME = "/";
 const LOGIN = "/login";
-const REGISTER = "/register";
 const AUTH = "/oauth/token";
 const PROFILE = "/profile";
-const REGISTER_USER = "/cliente";
-const REGISTER_EMPLOYEE = "/prestadorservico";
+const REGISTER = "/register";
+const REGISTER_EMPLOYEE = "/register/employee";
+const REGISTER_CLIENT = "/register/client";
 
 const RouteCodes = {
   HOME,
@@ -12,7 +12,7 @@ const RouteCodes = {
   REGISTER,
   AUTH,
   PROFILE,
-  REGISTER_USER,
+  REGISTER_CLIENT,
   REGISTER_EMPLOYEE,
 };
 

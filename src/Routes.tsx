@@ -6,6 +6,8 @@ import { RouteCodes } from "@constants/routes";
 import Register from "@containers/Register";
 import RequireAuth from "@containers/RequireAuth";
 import Profile from "@containers/Profile";
+import RegisterClient from "@containers/Register/RegisterClient";
+import RegisterEmployee from "@containers/Register/RegisterEmployee";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +24,14 @@ const AppRoutes = () => {
                 <Profile />
               </RequireAuth>
             }
+          />
+          <Route
+            path={RouteCodes.REGISTER_CLIENT}
+            element={<RegisterClient />}
+          />
+          <Route
+            path={RouteCodes.REGISTER_EMPLOYEE}
+            element={<RegisterEmployee />}
           />
         </Routes>
       </App>
