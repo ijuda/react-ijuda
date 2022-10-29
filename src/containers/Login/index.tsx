@@ -3,9 +3,10 @@ import Google from "@assets/Social/Google";
 import Linkedin from "@assets/Social/Linkedin";
 import Logo from "@components/ui/Atom/Logo";
 import { useAuth } from "@context/auth/AuthProvider";
-import { Box, Button, Link } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import * as C from "./styles";
 
 const Login = () => {
@@ -66,14 +67,7 @@ const Login = () => {
             </Button>
           </Box>
           <C.RegisterLink>
-            Não possui conta?{" "}
-            <Link
-              sx={{ ":hover": { color: "#f86c21" }, textDecoration: "none" }}
-              href="/register"
-            >
-              Cadastre-se
-            </Link>
-            .
+            Não possui conta? <Link to="/register">Cadastre-se</Link>.
           </C.RegisterLink>
         </C.FormBox>
       </C.FormContainer>
