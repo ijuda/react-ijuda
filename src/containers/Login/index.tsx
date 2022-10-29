@@ -5,7 +5,7 @@ import Logo from "@components/ui/Atom/Logo";
 import { useAuth } from "@context/auth/AuthProvider";
 import { Box, Button, Link } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import * as C from "./styles";
 
 const Login = () => {
@@ -18,7 +18,6 @@ const Login = () => {
       email,
       password,
     };
-
     await signIn(data);
   };
 
