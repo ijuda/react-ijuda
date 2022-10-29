@@ -1,13 +1,11 @@
 import {
-  Button,
   Card,
   CardActionArea,
-  CardActions,
   CardContent,
   CardMedia,
   Typography,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   cardTitle: string;
@@ -28,7 +26,7 @@ const RegisterCard = ({
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea onClick={() => navigate("/register/client")}>
+      <CardActionArea onClick={() => navigate(pathToNavigate)}>
         <CardMedia component="img" height="140" image={image} alt={alt} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
