@@ -7,9 +7,11 @@
       "@styles/*": ["./styles/*"],
       "@constants/*": ["./constants/*"],
       "@assets/*": ["./assets/*"],
-      "@types/*": ["./types/*"],
+      "@contracts/*": ["./contracts/*"],
       "@hooks/*": ["./hooks/*"],
-      "@contexts/*": ["./contexts/*"]
+      "@context/*": ["./context/*"],
+      "@services/*": ["./services/*"],
+      "@api/*": ["./api/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

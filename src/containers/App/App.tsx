@@ -1,6 +1,7 @@
-import { ThemeProvider } from "@mui/material";
-import Global from "@styles/global.styles";
-import { DarkTheme } from "@styles/themes/Dark";
+import { ThemeProvider } from '@mui/material';
+import Global from '@styles/global.styles';
+import { DarkTheme } from '@styles/themes/Dark';
+import AuthProvider from '@context/auth/AuthProvider';
 
 type Props = {
   children?: any;
@@ -8,10 +9,12 @@ type Props = {
 
 function App({ children }: Props) {
   return (
-    <ThemeProvider theme={DarkTheme}>
-      <div className="App">{children}</div>
-      <Global />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider theme={DarkTheme}>
+        <div className="App">{children}</div>
+        <Global />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

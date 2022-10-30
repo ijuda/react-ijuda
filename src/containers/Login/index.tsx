@@ -1,24 +1,26 @@
-import Facebook from "@assets/Social/Facebook";
-import Google from "@assets/Social/Google";
-import Linkedin from "@assets/Social/Linkedin";
-import Logo from "@components/ui/Atom/Logo";
-import { Box, Button, Link } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import { useState } from "react";
-// import { api } from "services/api";
-import * as C from "./styles";
+import Facebook from '@assets/Social/Facebook';
+import Google from '@assets/Social/Google';
+import Linkedin from '@assets/Social/Linkedin';
+import Logo from '@components/ui/Atom/Logo';
+import { useAuth } from '@context/auth/AuthProvider';
+import { Box, Button } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import * as C from './styles';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { signIn } = useAuth();
 
-  // const handleLogin = async () => {
-  //   const data = {
-  //     email,
-  //     password,
-  //   };
-  //   const response = await api.get("/auth");
-  // };
+  const handleLogin = async () => {
+    const data = {
+      email,
+      password,
+    };
+    await signIn(data);
+  };
 
   return (
     <C.LoginContainer>
@@ -36,12 +38,12 @@ const Login = () => {
           <Box
             width={250}
             mt={3}
-            display={"flex"}
-            flexDirection={"column"}
+            display={'flex'}
+            flexDirection={'column'}
             gap={3}
           >
             <TextField
-              sx={{ bgcolor: "black" }}
+              sx={{ bgcolor: 'black' }}
               label="Insira seu email"
               variant="outlined"
               fullWidth
@@ -49,29 +51,30 @@ const Login = () => {
               value={email}
             />
             <TextField
-              sx={{ bgcolor: "black" }}
+              sx={{ bgcolor: 'black' }}
               label="Insira sua senha"
-              type={"password"}
+              type={'password'}
               variant="outlined"
               fullWidth
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              onKeyUp={(e) => (e.key == 'Enter' ? handleLogin() : '')}
             />
           </Box>
-          <Box width={250} mt={3}>
-            <Button variant="contained" fullWidth>
+          <Box
+            width={250}
+            mt={3}
+          >
+            <Button
+              variant="contained"
+              fullWidth
+              onClick={handleLogin}
+            >
               Entrar
             </Button>
           </Box>
           <C.RegisterLink>
-            Não possui conta?{" "}
-            <Link
-              sx={{ ":hover": { color: "#f86c21" }, textDecoration: "none" }}
-              href="/register"
-            >
-              Cadastre-se
-            </Link>
-            .
+            Não possui conta? <Link to="/register">Cadastre-se</Link>.
           </C.RegisterLink>
         </C.FormBox>
       </C.FormContainer>
