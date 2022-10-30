@@ -2,7 +2,7 @@ import { api } from '@api/api';
 import jwtDecode from 'jwt-decode';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContextType, SignInCredentials, UserType } from '../../types';
+import { AuthContextType, SignInCredentials } from '../../types';
 
 export const AuthContext = createContext<AuthContextType>(
   {} as AuthContextType
