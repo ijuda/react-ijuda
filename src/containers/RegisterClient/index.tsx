@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const RegisterClient = () => {
   return <h1>RegisterClient</h1>;

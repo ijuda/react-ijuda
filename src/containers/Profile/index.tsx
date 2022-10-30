@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface storageUser {
   nome: string;
@@ -7,7 +7,7 @@ interface storageUser {
 const Profile = () => {
   const getUserData = () => {
     const storagedUser: storageUser = JSON.parse(
-      localStorage.getItem("user") || ""
+      localStorage.getItem('user') || ''
     );
     const { nome }: storageUser = storagedUser;
     return nome;

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const Google = () => {
   return (
     <svg
-    width="45"
+      width="45"
       height="55"
       viewBox="0 0 55 55"
       fill="none"

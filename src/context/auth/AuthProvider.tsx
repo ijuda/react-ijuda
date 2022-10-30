@@ -1,8 +1,8 @@
-import { api } from "@api/api";
-import jwtDecode from "jwt-decode";
-import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContextType, SignInCredentials, UserType } from "../../types";
+import { api } from '@api/api';
+import jwtDecode from 'jwt-decode';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContextType, SignInCredentials } from '../../types';
 
 export const AuthContext = createContext<AuthContextType>(
   {} as AuthContextType
@@ -17,10 +17,10 @@ const AuthProvider = ({ children }: Props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storageToken = localStorage.getItem("accessToken");
+    const storageToken = localStorage.getItem('accessToken');
     if (storageToken) {
       const decodedToken = jwtDecode(storageToken);
-      localStorage.setItem("user", JSON.stringify(decodedToken));
+      localStorage.setItem('user', JSON.stringify(decodedToken));
       setIsAuthenticated(true);
     }
   });
@@ -31,14 +31,14 @@ const AuthProvider = ({ children }: Props) => {
       password: password,
     });
     try {
-      const response = await api.post("/oauth/token", data, {
+      const response = await api.post('/oauth/token', data, {
         params: { grant_type: import.meta.env.VITE_GRANT_TYPE },
       });
       localStorage.setItem(
-        "accessToken",
+        'accessToken',
         JSON.stringify(response.data.access_token)
       );
-      navigate("/");
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +49,7 @@ const AuthProvider = ({ children }: Props) => {
     setIsAuthenticated(false);
   };
 
-  const currentUser = JSON.parse(localStorage.getItem("user")!);
+  const currentUser = JSON.parse(localStorage.getItem('user')!);
 
   return (
     <AuthContext.Provider
