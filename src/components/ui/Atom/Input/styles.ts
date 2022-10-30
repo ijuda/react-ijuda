@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Input = styled.input`
   background-color: #09090a;
@@ -6,11 +6,11 @@ export const Input = styled.input`
   padding: 1.7rem;
   border-radius: 8px;
   width: 25rem;
-  color: #FFF;
+  color: #fff;
 
   &:focus {
     outline: none !important;
-    box-shadow: 0 0 0 2px #F76707;
+    box-shadow: 0 0 0 2px #f76707;
   }
 
   &::placeholder {

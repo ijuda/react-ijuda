@@ -1,7 +1,7 @@
 // import Button from "@components/ui/Atom/Button";
-import Logo from "@components/ui/Atom/Logo";
-import { RouteCodes as route } from "@constants/routes";
-import { Logout } from "@mui/icons-material";
+import Logo from '@components/ui/Atom/Logo';
+import { RouteCodes as route } from '@constants/routes';
+import { Logout } from '@mui/icons-material';
 import {
   Avatar,
   Button,
@@ -11,11 +11,11 @@ import {
   Menu,
   MenuItem,
   Tooltip,
-} from "@mui/material";
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { HeaderType } from "types";
-import * as C from "./styles";
+} from '@mui/material';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { HeaderType } from 'types';
+import * as C from './styles';
 
 const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -33,7 +33,7 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
   };
 
   const menuProfileClick = () => {
-    navigate("/profile");
+    navigate('/profile');
   };
 
   return (
@@ -49,9 +49,9 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
                 onClick={handleClick}
                 size="small"
                 sx={{ ml: 2 }}
-                aria-controls={open ? "account-menu" : undefined}
+                aria-controls={open ? 'account-menu' : undefined}
                 aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
+                aria-expanded={open ? 'true' : undefined}
               >
                 <Avatar
                   alt="person"
@@ -60,7 +60,7 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
                       ? currentUser.profileImage
                       : getProfileImage(currentUser.nome)
                   }
-                  sx={{ width: 80, height: 80, cursor: "pointer" }}
+                  sx={{ width: 80, height: 80, cursor: 'pointer' }}
                 ></Avatar>
               </IconButton>
             </Tooltip>
@@ -73,31 +73,31 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
               PaperProps={{
                 elevation: 0,
                 sx: {
-                  overflow: "visible",
-                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  overflow: 'visible',
+                  filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                   mt: 1.5,
-                  "& .MuiAvatar-root": {
+                  '& .MuiAvatar-root': {
                     width: 32,
                     height: 32,
                     ml: -0.5,
                     mr: 1,
                   },
-                  "&:before": {
+                  '&:before': {
                     content: '""',
-                    display: "block",
-                    position: "absolute",
+                    display: 'block',
+                    position: 'absolute',
                     top: 0,
                     right: 14,
                     width: 10,
                     height: 10,
-                    bgcolor: "background.paper",
-                    transform: "translateY(-50%) rotate(45deg)",
+                    bgcolor: 'background.paper',
+                    transform: 'translateY(-50%) rotate(45deg)',
                     zIndex: 0,
                   },
                 },
               }}
-              transformOrigin={{ horizontal: "right", vertical: "top" }}
-              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+              anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
               <MenuItem onClick={menuProfileClick}>
                 <Avatar /> Profile
@@ -116,8 +116,8 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
             <Link to={route.LOGIN}>
               <Button
                 sx={{
-                  fontSize: "1.5rem",
-                  ":hover": { backgroundColor: "#ef6c00", color: "#FFF" },
+                  fontSize: '1.5rem',
+                  ':hover': { backgroundColor: '#ef6c00', color: '#FFF' },
                 }}
               >
                 Entrar
@@ -125,7 +125,7 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
             </Link>
             <Link to={route.REGISTER_EMPLOYEE}>
               <Button
-                sx={{ fontSize: "1.5rem", padding: "1.5rem" }}
+                sx={{ fontSize: '1.5rem', padding: '1.5rem' }}
                 variant="contained"
               >
                 Trabalhe Conosco

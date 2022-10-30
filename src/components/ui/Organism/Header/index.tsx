@@ -1,6 +1,6 @@
-import Nav from "@components/ui/Organism/Nav";
-import { HeaderType } from "types";
-import * as C from "./styles";
+import Nav from '@components/ui/Organism/Nav';
+import { HeaderType } from 'types';
+import * as C from './styles';
 
 const Header = ({ isAuthenticated, signOut, currentUser }: HeaderType) => {
   return (

@@ -1,14 +1,12 @@
-import React from 'react'
-import * as C from './styles'
+import React from 'react';
+import * as C from './styles';
 
 type Props = {
-  children: string
-}
+  children: string;
+};
 
-const PrimaryButton = ({children}: Props) => {
-  return (
-    <C.Button>{children}</C.Button>
-  )
-}
+const PrimaryButton = ({ children }: Props) => {
+  return <C.Button>{children}</C.Button>;
+};
 
-export default PrimaryButton
+export default PrimaryButton;

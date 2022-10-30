@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Button = styled.button`
-  background-color: #F76707;
+  background-color: #f76707;
   border: none;
   font-size: 1.5rem;
   font-weight: 500;
@@ -13,6 +13,6 @@ export const Button = styled.button`
   margin-top: 1rem;
 
   &:hover {
-    background-color: #FD7E14;
+    background-color: #fd7e14;
   }
 `;
