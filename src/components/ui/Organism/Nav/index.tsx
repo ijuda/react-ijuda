@@ -13,7 +13,7 @@ import {
   Tooltip,
 } from '@mui/material';
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HeaderType } from 'types';
 import * as C from './styles';
 
@@ -21,6 +21,7 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
+  const location = useLocation();
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -113,24 +114,30 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Link to={route.LOGIN}>
-              <Button
-                sx={{
-                  fontSize: '1.5rem',
-                  ':hover': { backgroundColor: '#ef6c00', color: '#FFF' },
-                }}
-              >
-                Entrar
-              </Button>
-            </Link>
-            <Link to={route.REGISTER_EMPLOYEE}>
-              <Button
-                sx={{ fontSize: '1.5rem', padding: '1.5rem' }}
-                variant="contained"
-              >
-                Trabalhe Conosco
-              </Button>
-            </Link>
+            {location.pathname.includes('/register') ? (
+              ''
+            ) : (
+              <React.Fragment>
+                <Link to={route.LOGIN}>
+                  <Button
+                    sx={{
+                      fontSize: '1.5rem',
+                      ':hover': { backgroundColor: '#ef6c00', color: '#FFF' },
+                    }}
+                  >
+                    Entrar
+                  </Button>
+                </Link>
+                <Link to={route.REGISTER_EMPLOYEE}>
+                  <Button
+                    sx={{ fontSize: '1.5rem', padding: '1.5rem' }}
+                    variant="contained"
+                  >
+                    Trabalhe Conosco
+                  </Button>
+                </Link>
+              </React.Fragment>
+            )}
           </React.Fragment>
         )}
       </C.NavLinkContainer>
