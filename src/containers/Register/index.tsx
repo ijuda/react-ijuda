@@ -1,11 +1,8 @@
 import RegisterCard from '@components/ui/Molecule/Card/RegisterCard';
 import { Grid } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import * as C from './styles';
 
 const Register = () => {
-  const navigate = useNavigate();
-
   return (
     <C.Container>
       <Grid

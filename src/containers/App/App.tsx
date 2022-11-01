@@ -4,7 +4,7 @@ import { DarkTheme } from '@styles/themes/Dark';
 import AuthProvider from '@context/auth/AuthProvider';
 
 type Props = {
-  children?: any;
+  children?: JSX.Element;
 };
 
 function App({ children }: Props) {
