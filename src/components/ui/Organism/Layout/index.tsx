@@ -9,7 +9,6 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   const { isAuthenticated, signOut, currentUser } = useAuth();
-
   return (
     <C.LayoutContainer>
       <Header
