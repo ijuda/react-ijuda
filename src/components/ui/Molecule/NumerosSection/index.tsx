@@ -10,7 +10,7 @@ const NumerosSection = () => {
         <Grid
           container
           display={'flex'}
-          justifyContent={'center'}
+          justifyContent={'space-around'}
         >
           <Grid
             item
@@ -24,7 +24,6 @@ const NumerosSection = () => {
               alignItems={'center'}
               flexDirection="column"
               gap={5}
-              width={350}
               textAlign="center"
             >
               <Typography
@@ -45,7 +44,6 @@ const NumerosSection = () => {
               alignItems={'center'}
               flexDirection="column"
               gap={5}
-              width={350}
             >
               <Typography
                 variant="h4"
@@ -63,7 +61,6 @@ const NumerosSection = () => {
               alignItems={'center'}
               flexDirection="column"
               gap={5}
-              width={350}
             >
               <Typography
                 variant="h4"
