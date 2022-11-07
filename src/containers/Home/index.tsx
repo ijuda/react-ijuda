@@ -1,4 +1,6 @@
 import HomeImage from '@assets/Home/HomeImage';
+import ComoFunciona from '@components/ui/Molecule/ComoFunciona';
+import ServicesContainer from '@components/ui/Molecule/ServicesContainer';
 import Layout from '@components/ui/Organism/Layout';
 import { Button, Container, Grid } from '@mui/material';
 import * as C from './styles';
@@ -43,6 +45,8 @@ const Home = () => {
               <HomeImage />
             </Grid>
           </Grid>
+          <ServicesContainer />
+          <ComoFunciona />
         </Container>
       </C.HomeContainer>
     </Layout>

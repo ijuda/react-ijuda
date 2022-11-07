@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { grey } from '@mui/material/colors';
 
 export const FooterContainer = styled.div`
+  margin-top: 10rem;
   background-color: ${grey[900]};
+  width: 100%;
 `;
 
 export const ListBox = styled.ul`
