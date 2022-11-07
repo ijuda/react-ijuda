@@ -2,6 +2,7 @@ import {
   Computer,
   Engineering,
   Grass,
+  Home,
   HomeRepairService,
   MedicalInformation,
   Plumbing,
@@ -40,8 +41,10 @@ const ServicesContainer = () => {
           <Typography sx={{ fontWeight: 'bold' }}>Saúde</Typography>
         </C.ServicesListItem>
         <C.ServicesListItem>
-          <Psychology fontSize="large" />
-          <Typography sx={{ fontWeight: 'bold' }}>Saúde mental</Typography>
+          <Home fontSize="large" />
+          <Typography sx={{ fontWeight: 'bold' }}>
+            Serviços Domésticos
+          </Typography>
         </C.ServicesListItem>
       </C.ServicesList>
     </C.Services>
