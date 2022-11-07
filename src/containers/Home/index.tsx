@@ -1,8 +1,11 @@
 import HomeImage from '@assets/Home/HomeImage';
+import HomeServicesCard from '@components/ui/Molecule/Card/HomeServicesCard';
 import ComoFunciona from '@components/ui/Molecule/ComoFunciona';
+import NumerosSection from '@components/ui/Molecule/NumerosSection';
 import ServicesContainer from '@components/ui/Molecule/ServicesContainer';
 import Layout from '@components/ui/Organism/Layout';
-import { Button, Container, Grid } from '@mui/material';
+import { Button, Container, Grid, Slide } from '@mui/material';
+import { Book, Heartbeat, Wrench } from 'phosphor-react';
 import * as C from './styles';
 
 const Home = () => {
@@ -48,6 +51,29 @@ const Home = () => {
           <ServicesContainer />
           <ComoFunciona />
         </Container>
+        <Container>
+          <C.HomeCardContainer>
+            <HomeServicesCard
+              CardCategory="Saúde"
+              CardDescription="Psicólogo"
+              CardIcon={<Heartbeat size={50} />}
+              NotaValue={'4.5'}
+            />
+            <HomeServicesCard
+              CardCategory="Aulas"
+              CardDescription="Aula de inglês"
+              CardIcon={<Book size={50} />}
+              NotaValue={'4.8'}
+            />
+            <HomeServicesCard
+              CardCategory="Reformas e reparos"
+              CardDescription="Troca de fiação elétrica"
+              CardIcon={<Wrench size={50} />}
+              NotaValue={'5.0'}
+            />
+          </C.HomeCardContainer>
+        </Container>
+        <NumerosSection />
       </C.HomeContainer>
     </Layout>
   );

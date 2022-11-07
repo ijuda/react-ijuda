@@ -2,13 +2,13 @@ import {
   Computer,
   Engineering,
   Grass,
+  Home,
   HomeRepairService,
   MedicalInformation,
   Plumbing,
   Psychology,
 } from '@mui/icons-material';
 import { Typography } from '@mui/material';
-import React from 'react';
 import * as C from './styled';
 
 const ServicesContainer = () => {
@@ -41,8 +41,10 @@ const ServicesContainer = () => {
           <Typography sx={{ fontWeight: 'bold' }}>Saúde</Typography>
         </C.ServicesListItem>
         <C.ServicesListItem>
-          <Psychology fontSize="large" />
-          <Typography sx={{ fontWeight: 'bold' }}>Saúde mental</Typography>
+          <Home fontSize="large" />
+          <Typography sx={{ fontWeight: 'bold' }}>
+            Serviços Domésticos
+          </Typography>
         </C.ServicesListItem>
       </C.ServicesList>
     </C.Services>
