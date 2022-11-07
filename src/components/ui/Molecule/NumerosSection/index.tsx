@@ -1,6 +1,5 @@
 import { Grid, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
-import React from 'react';
 import * as C from './styles';
 
 const NumerosSection = () => {

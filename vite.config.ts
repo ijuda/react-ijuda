@@ -30,6 +30,7 @@ export default defineConfig({
       { find: '@context', replacement: resolve(__dirname, './src/context') },
       { find: '@services', replacement: resolve(__dirname, './src/services') },
       { find: '@api', replacement: resolve(__dirname, './src/api') },
+      { find: '@images', replacement: resolve(__dirname, './public/images') },
     ],
   },
 });

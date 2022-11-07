@@ -8,7 +8,6 @@ import {
   Psychology,
 } from '@mui/icons-material';
 import { Typography } from '@mui/material';
-import React from 'react';
 import * as C from './styled';
 
 const ServicesContainer = () => {

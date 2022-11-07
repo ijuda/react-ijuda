@@ -1,8 +1,8 @@
 import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import CardItem1 from '../../../../../public/images/CardItem_1.svg';
-import CardItem3 from '../../../../../public/images/CardItem_3.svg';
-import CardItem4 from '../../../../../public/images/CardItem_4.svg';
+import CardItem1 from '@images/CardItem_1.svg';
+import CardItem3 from '@images/CardItem_3.svg';
+import CardItem4 from '@images/CardItem_4.svg';
 import * as C from './styles';
 
 const ComoFunciona = () => {
