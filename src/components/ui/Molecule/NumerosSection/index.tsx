@@ -66,7 +66,7 @@ const NumerosSection = () => {
                 variant="h4"
                 sx={{ boxShadow: '0px 4px 0px 0px #ef6c00' }}
               >
-                R$ 960.000.000
+                R$ 600.000.000
               </Typography>
               <Typography variant="h6">
                 Valor gerado aos profissionais por ano!
