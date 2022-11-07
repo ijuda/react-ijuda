@@ -10,7 +10,7 @@ const NumerosSection = () => {
         <Grid
           container
           display={'flex'}
-          justifyContent={'space-around'}
+          justifyContent={'space-between'}
         >
           <Grid
             item
