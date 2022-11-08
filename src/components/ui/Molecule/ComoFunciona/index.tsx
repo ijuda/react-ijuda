@@ -8,7 +8,7 @@ import * as C from './styles';
 const ComoFunciona = () => {
   return (
     <C.ComoFuncionaSection>
-      <Typography variant="h4">Como funciona o Ijuda?</Typography>
+      <Typography variant="h3">Como funciona o Ijuda?</Typography>
       <Grid
         container
         justifyContent={'space-between'}

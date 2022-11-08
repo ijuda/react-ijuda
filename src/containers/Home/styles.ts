@@ -18,5 +18,5 @@ export const Subtitle = styled.p`
 export const HomeCardContainer = styled.div`
   margin-top: 10rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
