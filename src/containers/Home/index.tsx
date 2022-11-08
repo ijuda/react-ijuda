@@ -2,9 +2,10 @@ import HomeImage from '@assets/Home/HomeImage';
 import HomeServicesCard from '@components/ui/Molecule/Card/HomeServicesCard';
 import ComoFunciona from '@components/ui/Molecule/ComoFunciona';
 import NumerosSection from '@components/ui/Molecule/NumerosSection';
+import OqueTemosDeBom from '@components/ui/Molecule/OqueTemosDeBom';
 import ServicesContainer from '@components/ui/Molecule/ServicesContainer';
 import Layout from '@components/ui/Organism/Layout';
-import { Button, Container, Grid, Slide } from '@mui/material';
+import { Button, Container, Grid } from '@mui/material';
 import { Book, Heartbeat, Wrench } from 'phosphor-react';
 import * as C from './styles';
 
@@ -74,6 +75,7 @@ const Home = () => {
           </C.HomeCardContainer>
         </Container>
         <NumerosSection />
+        <OqueTemosDeBom />
       </C.HomeContainer>
     </Layout>
   );
