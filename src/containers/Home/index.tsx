@@ -5,7 +5,7 @@ import NumerosSection from '@components/ui/Molecule/NumerosSection';
 import OqueTemosDeBom from '@components/ui/Molecule/OqueTemosDeBom';
 import ServicesContainer from '@components/ui/Molecule/ServicesContainer';
 import Layout from '@components/ui/Organism/Layout';
-import { Button, Container, Grid } from '@mui/material';
+import { Button, Container, Grid, Typography } from '@mui/material';
 import { Book, Heartbeat, Wrench } from 'phosphor-react';
 import * as C from './styles';
 
@@ -53,6 +53,13 @@ const Home = () => {
           <ComoFunciona />
         </Container>
         <Container>
+          <Typography
+            variant="h3"
+            textAlign={'center'}
+            marginTop={7}
+          >
+            Serviços mais solicitados
+          </Typography>
           <C.HomeCardContainer>
             <HomeServicesCard
               CardCategory="Saúde"
