@@ -18,7 +18,7 @@ const HomeServicesCard = ({
 }: Props) => {
   return (
     <Card
-      sx={{ width: 350, height: 350, padding: 1 }}
+      sx={{ width: 300, height: 350, padding: 1 }}
       elevation={2}
     >
       <CardContent>
@@ -33,7 +33,7 @@ const HomeServicesCard = ({
           >
             <Link
               to={'/'}
-              style={{ textDecoration: 'none', color: '#039be5' }}
+              style={{ textDecoration: 'none', color: '#29b6f6' }}
             >
               {CardCategory}
             </Link>
