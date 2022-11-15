@@ -6,5 +6,4 @@ export const api = axios.create({
     username: import.meta.env.VITE_USERNAME,
     password: import.meta.env.VITE_PASSWORD,
   },
-  headers: { 'content-type': 'application/x-www-form-urlencoded' },
 });
