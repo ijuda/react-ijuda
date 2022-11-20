@@ -1,3 +1,4 @@
+import { SelectChangeEvent } from '@mui/material';
 import { FormEvent } from 'react';
 
 type SignInCredentials = {
@@ -52,6 +53,8 @@ type RegisterType = {
   setComplemento: (event: string) => void;
   bairro: string;
   setBairro: (event: string) => void;
+  categoria?: string;
+  selectChangeHandler?: (event: SelectChangeEvent) => void;
   toggleHandler: () => void;
 };
 
