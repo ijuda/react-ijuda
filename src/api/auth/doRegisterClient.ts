@@ -1,6 +1,6 @@
 import { api } from '@api/api';
 
-export const doRegister = async (payload: any) => {
+export const doRegisterClient = async (payload: any) => {
   await api
     .post('/cliente', payload)
     .then((response) => console.log(response.data))

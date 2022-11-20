@@ -3,12 +3,16 @@ import {
   Avatar,
   Box,
   Button,
+  FormControl,
   Grid,
+  InputLabel,
+  MenuItem,
+  Select,
   Switch,
   TextField,
   Typography,
 } from '@mui/material';
-import { FormEvent } from 'react';
+import { useLocation } from 'react-router-dom';
 import { RegisterType } from 'types';
 
 const RegisterForm = ({
@@ -25,6 +29,7 @@ const RegisterForm = ({
   complemento,
   confirmPassword,
   isPasswordVisible,
+  categoria,
   toggleHandler,
   setConfirmPassword,
   setCpf,
@@ -39,7 +44,23 @@ const RegisterForm = ({
   setRua,
   setComplemento,
   setBairro,
+  selectChangeHandler,
 }: RegisterType) => {
+  const location = useLocation();
+
+  const CATEGORIAS_NAME = [
+    'Assistência técnica',
+    'Aulas',
+    'Autos',
+    'Consultoria',
+    'Design e Tecnologia',
+    'Eventos',
+    'Moda e beleza',
+    'Reforma e reparos',
+    'Saúde',
+    'Serviços Domésticos',
+  ];
+
   return (
     <Grid container>
       <Grid
@@ -223,6 +244,44 @@ const RegisterForm = ({
               sx={{ width: 420, backgroundColor: 'black' }}
             />
           </Box>
+          {location.pathname === '/register/employee' ? (
+            <Box
+              component={'div'}
+              display={'flex'}
+              justifyContent={'space-between'}
+            >
+              <FormControl
+                sx={{ width: '100%', margin: '5px 0px 5px 0px' }}
+                size="medium"
+              >
+                <InputLabel id="demo-select-small">
+                  Selecione sua categoria
+                </InputLabel>
+                <Select
+                  sx={{ backgroundColor: '#000' }}
+                  labelId="demo-select-small"
+                  id="demo-select-small"
+                  value={categoria}
+                  label="Selecione sua categoria"
+                  onChange={selectChangeHandler}
+                >
+                  <MenuItem value="">
+                    <em>Selecione sua categoria</em>
+                  </MenuItem>
+                  <MenuItem value={1}>Assistência técnica</MenuItem>
+                  <MenuItem value={2}>Aulas</MenuItem>
+                  <MenuItem value={3}>Autos</MenuItem>
+                  <MenuItem value={4}>Consultoria</MenuItem>
+                  <MenuItem value={5}>Design e Tecnologia</MenuItem>
+                  <MenuItem value={6}>Eventos</MenuItem>
+                  <MenuItem value={7}>Moda e beleza</MenuItem>
+                  <MenuItem value={8}>Reforma e reparos</MenuItem>
+                  <MenuItem value={9}>Saúde</MenuItem>
+                  <MenuItem value={10}>Serviços Domésticos</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          ) : null}
           <Box
             component={'div'}
             display={'flex'}

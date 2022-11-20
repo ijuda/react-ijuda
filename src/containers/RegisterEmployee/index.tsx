@@ -1,6 +1,7 @@
-import { doRegister } from '@api/auth/doRegister';
+import { doRegisterEmployee } from '@api/auth/doRegisterEmployee';
 import RegisterForm from '@components/ui/Molecule/RegisterForm';
 import Layout from '@components/ui/Organism/Layout';
+import { SelectChangeEvent } from '@mui/material';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as C from './styles';
@@ -19,6 +20,8 @@ const RegisterEmployee = () => {
   const [complemento, setComplemento] = useState('');
   const [cep, setCep] = useState('');
   const [bairro, setBairro] = useState('');
+  const [categoria, setCategoria] = useState('');
+
   const navigate = useNavigate();
 
   const handleSubmit = (event: FormEvent) => {
@@ -28,25 +31,35 @@ const RegisterEmployee = () => {
         nome: name,
         email: email,
         senha: password,
-        permissoes: [{ id: 2 }],
+        permissoes: [{ id: 3 }],
       },
-      cpf: cpf,
+      ativo: true,
       telefone: phoneNumber,
+      cpf: cpf,
       endereco: {
         rua: rua,
         bairro: bairro,
-        numero: Number(number),
+        numero: number,
         complemento: complemento,
         cidade: cidade,
         pais: 'brasil',
         cep: cep,
       },
-      ativo: true,
+      servicos: [
+        {
+          id: categoria,
+        },
+      ],
     };
+    console.log(payload);
 
-    doRegister(payload);
-
+    doRegisterEmployee(payload);
     navigate('/login');
+  };
+
+  const selectHandleChange = (event: SelectChangeEvent) => {
+    setCategoria(event.target.value);
+    console.log({ categoria });
   };
 
   const toggleHandler = () => {
@@ -74,6 +87,7 @@ const RegisterEmployee = () => {
             rua={rua}
             bairro={bairro}
             complemento={complemento}
+            categoria={categoria}
             isPasswordVisible={isPasswordVisible}
             setConfirmPassword={setConfirmPassword}
             setCpf={setCpf}
@@ -87,6 +101,7 @@ const RegisterEmployee = () => {
             setNumber={setNumber}
             setRua={setRua}
             setBairro={setBairro}
+            selectChangeHandler={selectHandleChange}
             toggleHandler={toggleHandler}
             handleSubmit={handleSubmit}
           />
