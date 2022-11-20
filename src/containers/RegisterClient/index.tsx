@@ -1,4 +1,4 @@
-import { doRegister } from '@api/auth/doRegister';
+import { doRegisterClient } from '@api/auth/doRegisterClient';
 import RegisterForm from '@components/ui/Molecule/RegisterForm';
 import Layout from '@components/ui/Organism/Layout';
 import { FormEvent, useState } from 'react';
@@ -44,7 +44,7 @@ const RegisterClient = () => {
       ativo: true,
     };
 
-    doRegister(payload);
+    doRegisterClient(payload);
 
     navigate('/login');
   };
