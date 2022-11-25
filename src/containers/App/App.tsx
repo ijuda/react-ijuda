@@ -6,7 +6,6 @@ import AuthProvider from '@context/auth/AuthProvider';
 type Props = {
   children?: JSX.Element;
 };
-
 function App({ children }: Props) {
   return (
     <AuthProvider>

@@ -7,6 +7,7 @@ const REGISTER_EMPLOYEE = '/register/employee';
 const REGISTER_CLIENT = '/register/client';
 const TRABALHE_CONOSCO = '/trabalhe-conosco';
 const SAIBA_MAIS = '/saiba-mais';
+const SERVICES = '/services';
 
 const RouteCodes = {
   HOME,
@@ -18,6 +19,7 @@ const RouteCodes = {
   REGISTER_EMPLOYEE,
   TRABALHE_CONOSCO,
   SAIBA_MAIS,
+  SERVICES,
 };
 
 export { RouteCodes };

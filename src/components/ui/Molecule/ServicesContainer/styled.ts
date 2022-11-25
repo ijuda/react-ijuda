@@ -7,9 +7,9 @@ export const Services = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
   background-color: ${grey[900]};
-  padding: 4rem;
+  padding: 10rem;
   border-radius: 10px;
 `;
 
@@ -28,8 +28,11 @@ export const ServicesListItem = styled.li`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 10px;
+  gap: 1rem;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  height: 130px;
 
   &:hover {
     background-color: ${orange[800]};
