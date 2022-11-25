@@ -73,7 +73,7 @@ const ServicesContainerCard = ({ categorias, cardCategoryHandler }: Props) => {
             ),
           ]}
           isActive={
-            location.pathname.split('/')[2] ===
+            location.pathname.split('/')[2]?.replace(/%20/g, ' ') ===
             textTransformHandler(categoria.nome)
               ? true
               : false
