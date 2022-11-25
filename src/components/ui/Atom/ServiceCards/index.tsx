@@ -9,6 +9,8 @@ import {
 import { orange } from '@mui/material/colors';
 import { Box } from '@mui/system';
 import { Star } from 'phosphor-react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   id: number;
@@ -29,6 +31,8 @@ export const ServiceCards = ({
   categoriaName,
   serviceName,
 }: Props) => {
+  const navigate = useNavigate();
+
   return (
     <Grid item>
       <Card
@@ -116,7 +120,14 @@ export const ServiceCards = ({
                 ':hover': { backgroundColor: `${orange[900]}`, color: '#FFF' },
               }}
             >
-              Entre em contato
+              <a
+                href={`https://wa.me/5585989717185`}
+                target={'_blank'}
+                rel="noreferrer"
+                style={{ textDecoration: 'none', color: '#FFF' }}
+              >
+                Entre em contato
+              </a>
             </Button>
           </CardActions>
         </div>
