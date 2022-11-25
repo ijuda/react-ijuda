@@ -1,4 +1,5 @@
 import { getAllCategories } from '@api/services/getAllCategories';
+import { RouteCodes } from '@constants/routes';
 import { Computer } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
@@ -55,6 +56,13 @@ const ServicesContainer = () => {
     }
   };
 
+  const textTransformHandler = (value: string) => {
+    return value
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  };
+
   return (
     <C.Services>
       <Typography variant="h3">Categorias dos serviços</Typography>
@@ -66,7 +74,9 @@ const ServicesContainer = () => {
             width={130}
           >
             <Link
-              to={'/services'}
+              to={`${RouteCodes.SERVICES}/${textTransformHandler(
+                categoria.nome
+              )}`}
               style={{ textDecoration: 'none', color: '#FFF' }}
             >
               <C.ServicesListItem>

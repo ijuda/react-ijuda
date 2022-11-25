@@ -1,3 +1,4 @@
+import { RouteCodes } from '@constants/routes';
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import {
@@ -11,6 +12,7 @@ import {
   PaintBrushHousehold,
   Wrench,
 } from 'phosphor-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { TCategoria } from 'types';
 import * as C from './styles';
 
@@ -20,6 +22,8 @@ type Props = {
 };
 
 const ServicesContainerCard = ({ categorias, cardCategoryHandler }: Props) => {
+  const navigate = useNavigate();
+  const pathname = useLocation();
   const getCardIcon = (name: string) => {
     switch (name) {
       case 'Assistência técnica':
@@ -44,6 +48,12 @@ const ServicesContainerCard = ({ categorias, cardCategoryHandler }: Props) => {
         return <Wrench size={30} />;
     }
   };
+  const textTransformHandler = (value: string) => {
+    return value
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  };
 
   return (
     <Box
@@ -58,7 +68,21 @@ const ServicesContainerCard = ({ categorias, cardCategoryHandler }: Props) => {
       {categorias?.map((categoria: TCategoria) => (
         <C.Card
           key={categoria.id}
-          onClick={() => cardCategoryHandler(categoria.nome)}
+          onClick={() => [
+            cardCategoryHandler(categoria.nome),
+            navigate(
+              `${RouteCodes.SERVICES}/${textTransformHandler(categoria.nome)}`
+            ),
+          ]}
+          isActive={
+            textTransformHandler(categoria.nome) ===
+            location.pathname
+              .split('/')[2]
+              .replace('%20', ' ')
+              .replace('%20', ' ')
+              ? true
+              : false
+          }
         >
           <Box component={'div'}>{getCardIcon(categoria.nome)}</Box>
           <Typography variant="subtitle1">{categoria.nome}</Typography>
