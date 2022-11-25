@@ -1,17 +1,13 @@
-import { getAllPrestadorServico } from '@api/services/getAllPrestadorServico';
 import { getAllCategories } from '@api/services/getAllCategories';
+import { getAllPrestadorServico } from '@api/services/getAllPrestadorServico';
 import { ServiceCards } from '@components/ui/Atom/ServiceCards';
 import ServicesContainerCard from '@components/ui/Atom/ServiceContainerCards';
 import Layout from '@components/ui/Organism/Layout';
 import { Search } from '@mui/icons-material';
 import {
   Button,
-  FormControl,
   Grid,
   InputAdornment,
-  InputLabel,
-  MenuItem,
-  Select,
   Skeleton,
   TextField,
   Typography,
@@ -19,31 +15,34 @@ import {
 import { Box, Container } from '@mui/system';
 import { IData } from 'interfaces';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import * as C from './styles';
+import { useNavigate, useParams } from 'react-router-dom';
 import { TCategoria } from 'types';
+import * as C from './styles';
 
 const Services = () => {
-  const { id } = useParams<string>();
-  const [data, setData] = useState<IData[]>();
-  const [searchString, setSearchString] = useState<any>(id);
+  const { id } = useParams<any>();
+  const [prestadoresServico, setPrestadoresServico] = useState<IData[]>();
+  const [searchString, setSearchString] = useState<any>(id ? id : '');
   const [loading, setLoading] = useState(true);
-  const [servicos, setServicos] = useState<TCategoria[]>();
+  const [servicosValue, setServicosValue] = useState<TCategoria[]>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getServices = async () => {
       await getAllPrestadorServico()?.then((response) =>
-        setData(response.data)
+        setPrestadoresServico(response.data)
       );
-      await getAllCategories()?.then((response) => setServicos(response.data));
+      await getAllCategories()?.then((response) =>
+        setServicosValue(response.data)
+      );
       setLoading(false);
     };
     getServices();
   }, []);
 
-  const servicosFiltro = data?.filter(
-    (data) =>
-      data?.servicos[0]?.nome
+  const servicosFiltro = prestadoresServico?.filter(
+    (prestadorServico) =>
+      prestadorServico?.servicos[0]?.nome
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
@@ -53,7 +52,7 @@ const Services = () => {
             .replace(/[\u0300-\u036f]/g, '')
             .toLowerCase()
         ) ||
-      data?.servicos[0]?.categoria.nome
+      prestadorServico?.servicos[0]?.categoria.nome
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
@@ -106,7 +105,7 @@ const Services = () => {
                 Categorias
               </Typography>
               <ServicesContainerCard
-                categorias={servicos}
+                categorias={servicosValue}
                 cardCategoryHandler={cardCategoryHandler}
               />
             </Box>
@@ -133,8 +132,12 @@ const Services = () => {
                         <Button
                           variant="contained"
                           sx={{ height: 50 }}
+                          onClick={() => [
+                            setSearchString(''),
+                            navigate('/services'),
+                          ]}
                         >
-                          Search
+                          Limpar
                         </Button>
                       </InputAdornment>
                     ),

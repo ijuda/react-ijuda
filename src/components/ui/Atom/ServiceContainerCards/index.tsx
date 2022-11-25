@@ -12,7 +12,7 @@ import {
   PaintBrushHousehold,
   Wrench,
 } from 'phosphor-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { TCategoria } from 'types';
 import * as C from './styles';
 
@@ -23,7 +23,6 @@ type Props = {
 
 const ServicesContainerCard = ({ categorias, cardCategoryHandler }: Props) => {
   const navigate = useNavigate();
-  const pathname = useLocation();
   const getCardIcon = (name: string) => {
     switch (name) {
       case 'Assistência técnica':
@@ -54,7 +53,6 @@ const ServicesContainerCard = ({ categorias, cardCategoryHandler }: Props) => {
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
   };
-
   return (
     <Box
       id="card"
@@ -75,11 +73,8 @@ const ServicesContainerCard = ({ categorias, cardCategoryHandler }: Props) => {
             ),
           ]}
           isActive={
-            textTransformHandler(categoria.nome) ===
-            location.pathname
-              .split('/')[2]
-              .replace('%20', ' ')
-              .replace('%20', ' ')
+            location.pathname.split('/')[2]?.replace(/%20/g, ' ') ===
+            textTransformHandler(categoria.nome)
               ? true
               : false
           }
