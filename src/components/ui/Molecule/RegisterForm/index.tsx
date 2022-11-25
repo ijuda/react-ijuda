@@ -71,8 +71,6 @@ const RegisterForm = ({
     getServices();
   }, []);
 
-  console.log(service);
-
   return (
     <Grid container>
       <Grid

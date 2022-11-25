@@ -51,6 +51,14 @@ const AppRoutes = () => {
               </RequireAuth>
             }
           />
+          <Route
+            path={RouteCodes.SERVICES_ID}
+            element={
+              <RequireAuth>
+                <Services />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </App>
     </Router>

@@ -58,7 +58,6 @@ const RegisterEmployee = () => {
 
   const selectHandleChange = (event: SelectChangeEvent) => {
     setCategoria(event.target.value);
-    console.log({ categoria });
   };
 
   const toggleHandler = () => {

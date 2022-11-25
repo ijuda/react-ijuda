@@ -8,6 +8,7 @@ const REGISTER_CLIENT = '/register/client';
 const TRABALHE_CONOSCO = '/trabalhe-conosco';
 const SAIBA_MAIS = '/saiba-mais';
 const SERVICES = '/services';
+const SERVICES_ID = '/services/:id';
 
 const RouteCodes = {
   HOME,
@@ -20,6 +21,7 @@ const RouteCodes = {
   TRABALHE_CONOSCO,
   SAIBA_MAIS,
   SERVICES,
+  SERVICES_ID,
 };
 
 export { RouteCodes };

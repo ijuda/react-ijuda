@@ -1,5 +1,5 @@
-import { getAllPrestadorServico } from '@api/services/getAllPrestadorServico';
 import { getAllCategories } from '@api/services/getAllCategories';
+import { getAllPrestadorServico } from '@api/services/getAllPrestadorServico';
 import { ServiceCards } from '@components/ui/Atom/ServiceCards';
 import ServicesContainerCard from '@components/ui/Atom/ServiceContainerCards';
 import Layout from '@components/ui/Organism/Layout';
@@ -15,42 +15,53 @@ import {
 import { Box, Container } from '@mui/system';
 import { IData } from 'interfaces';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import * as C from './styles';
+import { useNavigate, useParams } from 'react-router-dom';
 import { TCategoria } from 'types';
+import * as C from './styles';
 
 const Services = () => {
-  const [data, setData] = useState<IData[]>();
-  const [searchString, setSearchString] = useState('');
+  const { id } = useParams<any>();
+  const [prestadoresServico, setPrestadoresServico] = useState<IData[]>();
+  const [searchString, setSearchString] = useState<any>(id ? id : '');
   const [loading, setLoading] = useState(true);
-  const [categorias, setCategorias] = useState<TCategoria[]>();
-  const [servico, setServico] = useState<any>();
-  const location = useLocation();
+  const [servicosValue, setServicosValue] = useState<TCategoria[]>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getServices = async () => {
       await getAllPrestadorServico()?.then((response) =>
-        setData(response.data)
+        setPrestadoresServico(response.data)
       );
       await getAllCategories()?.then((response) =>
-        setCategorias(response.data)
+        setServicosValue(response.data)
       );
       setLoading(false);
     };
     getServices();
   }, []);
 
-  const categoriaFiltro = data?.filter((data, index) =>
-    data?.servicos[0]?.nome
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .includes(
-        searchString
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-          .toLowerCase()
-      )
+  const servicosFiltro = prestadoresServico?.filter(
+    (prestadorServico) =>
+      prestadorServico?.servicos[0]?.nome
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .includes(
+          searchString
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+        ) ||
+      prestadorServico?.servicos[0]?.categoria.nome
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .includes(
+          searchString
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+        )
   );
 
   const cardCategoryHandler = (value: string) => {
@@ -79,39 +90,6 @@ const Services = () => {
       ) : (
         <Box component={'div'}>
           <C.ServicesContainer>
-            <Container>
-              <Box
-                component={'div'}
-                display="flex"
-                justifyContent={'center'}
-                alignItems="center"
-              >
-                <TextField
-                  sx={{ width: 550, marginTop: 10 }}
-                  placeholder="Informe o serviço desejado"
-                  InputProps={{
-                    sx: { height: 80, fontSize: 20 },
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Search fontSize="large" />
-                      </InputAdornment>
-                    ),
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <Button
-                          variant="contained"
-                          sx={{ height: 50 }}
-                        >
-                          Search
-                        </Button>
-                      </InputAdornment>
-                    ),
-                  }}
-                  value={searchString}
-                  onChange={(e) => setSearchString(e.target.value)}
-                />
-              </Box>
-            </Container>
             <Box
               id="services-card-container"
               component={'div'}
@@ -127,10 +105,67 @@ const Services = () => {
                 Categorias
               </Typography>
               <ServicesContainerCard
-                categorias={categorias}
+                categorias={servicosValue}
                 cardCategoryHandler={cardCategoryHandler}
               />
             </Box>
+            <Container>
+              <Box
+                component={'div'}
+                display="flex"
+                justifyContent={'center'}
+                gap={10}
+                alignItems="center"
+              >
+                <TextField
+                  sx={{ width: 550 }}
+                  placeholder="Informe o serviço ou categoria desejada"
+                  InputProps={{
+                    sx: { height: 80, fontSize: 20 },
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Search fontSize="large" />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <Button
+                          variant="contained"
+                          sx={{ height: 50 }}
+                          onClick={() => [
+                            setSearchString(''),
+                            navigate('/services'),
+                          ]}
+                        >
+                          Limpar
+                        </Button>
+                      </InputAdornment>
+                    ),
+                  }}
+                  value={searchString}
+                  onChange={(e) => setSearchString(e.target.value)}
+                />
+                {/* <FormControl
+                  size="medium"
+                  sx={{ width: 550 }}
+                >
+                  <InputLabel id="demo-select-small">Cidade</InputLabel>
+                  <Select
+                    sx={{ backgroundColor: '#000' }}
+                    labelId="demo-select-small"
+                    id="demo-select-small"
+                    // value={categoria}
+                    label="Selecione sua categoria"
+                    style={{ height: 70 }}
+                    // onChange={selectChangeHandler}
+                  >
+                    <MenuItem value="">
+                      <em>Selecione sua categoria</em>
+                    </MenuItem>
+                  </Select>
+                </FormControl> */}
+              </Box>
+            </Container>
             <Container>
               <Box
                 id="services-cards"
@@ -143,7 +178,7 @@ const Services = () => {
                   justifyContent={'center'}
                   gap={4}
                 >
-                  {categoriaFiltro?.map((item: IData) => {
+                  {servicosFiltro?.map((item: IData) => {
                     return (
                       <ServiceCards
                         key={item.id}
