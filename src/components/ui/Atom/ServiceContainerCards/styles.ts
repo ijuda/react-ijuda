@@ -12,8 +12,8 @@ export const Card = styled.div<{ isActive: boolean }>`
   width: 120px;
   cursor: pointer;
   transition: 0.2s all;
-  color: ${(props) => (props.isActive ? `${lightBlue[300]}` : null)};
-  border-color: ${(props) => (props.isActive ? `${lightBlue[300]}` : null)};
+  color: ${({ isActive }) => (isActive ? `${lightBlue[300]}` : null)};
+  border-color: ${({ isActive }) => (isActive ? `${lightBlue[300]}` : null)};
 
   &:hover {
     color: ${lightBlue[300]};
