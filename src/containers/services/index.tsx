@@ -27,8 +27,6 @@ const Services = () => {
   const [servicosValue, setServicosValue] = useState<TCategoria[]>();
   const navigate = useNavigate();
 
-  console.log({ prestadoresServico, servicosValue });
-
   useEffect(() => {
     const getServices = async () => {
       await getAllPrestadorServico()?.then((response) =>
