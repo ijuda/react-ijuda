@@ -145,25 +145,6 @@ const Services = () => {
                   value={searchString}
                   onChange={(e) => setSearchString(e.target.value)}
                 />
-                {/* <FormControl
-                  size="medium"
-                  sx={{ width: 550 }}
-                >
-                  <InputLabel id="demo-select-small">Cidade</InputLabel>
-                  <Select
-                    sx={{ backgroundColor: '#000' }}
-                    labelId="demo-select-small"
-                    id="demo-select-small"
-                    // value={categoria}
-                    label="Selecione sua categoria"
-                    style={{ height: 70 }}
-                    // onChange={selectChangeHandler}
-                  >
-                    <MenuItem value="">
-                      <em>Selecione sua categoria</em>
-                    </MenuItem>
-                  </Select>
-                </FormControl> */}
               </Box>
             </Container>
             <Container>
