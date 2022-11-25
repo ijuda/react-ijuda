@@ -17,7 +17,9 @@ const Layout = ({ children }: Props) => {
         signOut={signOut}
       />
       <C.ChildrenContainer>{children}</C.ChildrenContainer>
-      <Footer />
+      <C.FooterWrapper>
+        <Footer />
+      </C.FooterWrapper>
     </C.LayoutContainer>
   );
 };

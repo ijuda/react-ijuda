@@ -7,15 +7,23 @@ import ServicesContainer from '@components/ui/Molecule/ServicesContainer';
 import Layout from '@components/ui/Organism/Layout';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import { Book, Heartbeat, Wrench } from 'phosphor-react';
+import { useNavigate } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
 import * as C from './styles';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const scrollTo = () => {
+    scroll.scrollTo(700);
+  };
   return (
     <Layout>
       <C.HomeContainer>
         <Container
           sx={{ marginTop: 4 }}
-          maxWidth="lg"
+          component={'div'}
+          maxWidth={'lg'}
         >
           <Grid
             container
@@ -37,6 +45,7 @@ const Home = () => {
               </C.Subtitle>
               <Button
                 variant="contained"
+                onClick={() => scrollTo()}
                 sx={{ marginTop: 6, padding: 2 }}
               >
                 Conheça nossos serviços
@@ -49,10 +58,10 @@ const Home = () => {
               <HomeImage />
             </Grid>
           </Grid>
-          <ServicesContainer />
-          <ComoFunciona />
         </Container>
+        <ServicesContainer />
         <Container>
+          <ComoFunciona />
           <Typography
             variant="h3"
             textAlign={'center'}

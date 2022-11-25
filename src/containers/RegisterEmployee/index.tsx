@@ -51,7 +51,6 @@ const RegisterEmployee = () => {
         },
       ],
     };
-    console.log(payload);
 
     doRegisterEmployee(payload);
     navigate('/login');

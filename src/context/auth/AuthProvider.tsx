@@ -38,7 +38,7 @@ const AuthProvider = ({ children }: Props) => {
         'accessToken',
         JSON.stringify(response.data.access_token)
       );
-      navigate('/');
+      navigate('/services');
     } catch (err) {
       console.log(err);
     }
