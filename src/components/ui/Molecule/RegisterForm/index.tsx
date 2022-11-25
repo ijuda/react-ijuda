@@ -1,3 +1,5 @@
+import { getAllPrestadorServico } from '@api/services/getAllPrestadorServico';
+import { getAllServices } from '@api/services/getAllServices';
 import profileImg from '@images/profileImage.svg';
 import {
   Avatar,
@@ -12,8 +14,9 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { RegisterType } from 'types';
+import { RegisterType, TService } from 'types';
 
 const RegisterForm = ({
   email,
@@ -47,7 +50,7 @@ const RegisterForm = ({
   selectChangeHandler,
 }: RegisterType) => {
   const location = useLocation();
-
+  const [service, setService] = useState<TService[]>();
   const CATEGORIAS_NAME = [
     'Assistência técnica',
     'Aulas',
@@ -60,6 +63,15 @@ const RegisterForm = ({
     'Saúde',
     'Serviços Domésticos',
   ];
+
+  useEffect(() => {
+    const getServices = async () => {
+      getAllServices()?.then((response) => setService(response.data));
+    };
+    getServices();
+  }, []);
+
+  console.log(service);
 
   return (
     <Grid container>
@@ -268,16 +280,14 @@ const RegisterForm = ({
                   <MenuItem value="">
                     <em>Selecione sua categoria</em>
                   </MenuItem>
-                  <MenuItem value={1}>Assistência técnica</MenuItem>
-                  <MenuItem value={2}>Aulas</MenuItem>
-                  <MenuItem value={3}>Autos</MenuItem>
-                  <MenuItem value={4}>Consultoria</MenuItem>
-                  <MenuItem value={5}>Design e Tecnologia</MenuItem>
-                  <MenuItem value={6}>Eventos</MenuItem>
-                  <MenuItem value={7}>Moda e beleza</MenuItem>
-                  <MenuItem value={8}>Reforma e reparos</MenuItem>
-                  <MenuItem value={9}>Saúde</MenuItem>
-                  <MenuItem value={10}>Serviços Domésticos</MenuItem>
+                  {service?.map((item: TService) => (
+                    <MenuItem
+                      key={item.id}
+                      value={item.id}
+                    >
+                      {item.nome}
+                    </MenuItem>
+                  ))}
                 </Select>
               </FormControl>
             </Box>

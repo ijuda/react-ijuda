@@ -58,10 +58,68 @@ type RegisterType = {
   toggleHandler: () => void;
 };
 
+type TData = {
+  id?: number | any;
+  telefone: string | any;
+  cpf: string | any;
+  endereco: {
+    rua: string | any;
+    bairro: string | any;
+    numero: number;
+    complemento: string | any;
+    cidade: string | any;
+    pais: string | any;
+    cep: string | any;
+  };
+  ativo: true | any;
+  usuario: {
+    id: number | any;
+    nome: string | any;
+    email: string | any;
+    senha: string | any;
+    permissoes: [
+      {
+        id: number | any;
+        descricao: string | any;
+      }
+    ];
+    imagem: null | any;
+  };
+  servicos: [
+    {
+      id: number | any;
+      nome: string | any;
+      valor: number | any;
+      categoria: {
+        id: number | any;
+        nome: string | any;
+      };
+    }
+  ];
+};
+
+type TCategoria = {
+  id: number;
+  nome: string;
+};
+
+type TService = {
+  id: number;
+  nome: string;
+  valor: number;
+  categoria: {
+    id: number;
+    nome: string;
+  };
+};
+
 export type {
   AuthContextType,
   SignInCredentials,
   HeaderType,
   UserType,
   RegisterType,
+  TData,
+  TCategoria,
+  TService,
 };

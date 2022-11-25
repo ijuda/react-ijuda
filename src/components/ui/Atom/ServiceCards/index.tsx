@@ -6,19 +6,33 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
+import { orange } from '@mui/material/colors';
 import { Box } from '@mui/system';
 import { Star } from 'phosphor-react';
 
 type Props = {
-  data: any;
+  id: number;
+  prestadorServicoNome: string;
+  bairro: string;
+  cidade: string;
+  serviceName: string;
+  categoriaId?: number;
+  categoriaName?: string;
 };
 
-export const ServiceCards = ({ data }: Props) => {
-  console.log(data);
+export const ServiceCards = ({
+  id,
+  prestadorServicoNome,
+  bairro,
+  cidade,
+  categoriaId,
+  categoriaName,
+  serviceName,
+}: Props) => {
   return (
     <Grid item>
       <Card
-        sx={{ minWidth: 200, display: 'flex' }}
+        sx={{ width: 250, display: 'flex' }}
         variant="outlined"
       >
         <div style={{ backgroundColor: 'orange', width: 4 }}></div>
@@ -28,32 +42,32 @@ export const ServiceCards = ({ data }: Props) => {
               variant="h5"
               component="div"
             >
-              Assistência técnica
+              {categoriaName}
             </Typography>
             <Typography
               sx={{ mb: 1.5 }}
               color="text.secondary"
             >
-              Computador desktop
+              {serviceName}
             </Typography>
             <Typography
               fontSize={15}
               fontWeight={'bold'}
               textTransform={'uppercase'}
             >
-              Mateus Cesar
+              {prestadorServicoNome}
             </Typography>
             <Typography
               fontSize={18}
               marginTop={2}
             >
-              Fortaleza
+              {cidade}
             </Typography>
             <Typography
               sx={{ mb: 1.5 }}
               color="text.secondary"
             >
-              Bonsucesso
+              {bairro}
             </Typography>
             <Box
               id="nota-component"
@@ -69,7 +83,7 @@ export const ServiceCards = ({ data }: Props) => {
               >
                 4.8
                 <Box
-                  component={'div'}
+                  component={'span'}
                   display={'flex'}
                   gap={1}
                 >
@@ -97,7 +111,10 @@ export const ServiceCards = ({ data }: Props) => {
             <Button
               size="small"
               variant="outlined"
-              sx={{ marginLeft: 1.3 }}
+              sx={{
+                marginLeft: 1.3,
+                ':hover': { backgroundColor: `${orange[900]}`, color: '#FFF' },
+              }}
             >
               Entre em contato
             </Button>

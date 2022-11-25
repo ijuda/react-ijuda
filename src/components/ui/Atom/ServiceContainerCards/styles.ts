@@ -8,12 +8,17 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-  width: 140px;
+  gap: 5px;
+  width: 120px;
   cursor: pointer;
   transition: 0.2s all;
 
   &:hover {
+    color: ${lightBlue[300]};
+    border-color: ${lightBlue[300]};
+  }
+
+  &:active {
     color: ${lightBlue[300]};
     border-color: ${lightBlue[300]};
   }

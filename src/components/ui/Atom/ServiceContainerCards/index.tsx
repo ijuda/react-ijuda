@@ -1,46 +1,69 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { Desktop } from 'phosphor-react';
+import {
+  Balloon,
+  Book,
+  Car,
+  Desktop,
+  EyeClosed,
+  Heartbeat,
+  MagicWand,
+  PaintBrushHousehold,
+  Wrench,
+} from 'phosphor-react';
+import { TCategoria } from 'types';
 import * as C from './styles';
 
-const ServicesContainerCard = () => {
+type Props = {
+  categorias: any;
+  cardCategoryHandler: (value: string) => void;
+};
+
+const ServicesContainerCard = ({ categorias, cardCategoryHandler }: Props) => {
+  const getCardIcon = (name: string) => {
+    switch (name) {
+      case 'Assistência técnica':
+        return <Desktop size={30} />;
+      case 'Aulas':
+        return <Book size={30} />;
+      case 'Autos':
+        return <Car size={30} />;
+      case 'Consultoria':
+        return <MagicWand size={30} />;
+      case 'Design e Tecnologia':
+        return <EyeClosed size={30} />;
+      case 'Eventos':
+        return <Balloon size={30} />;
+      case 'Moda e beleza':
+        return <EyeClosed size={30} />;
+      case 'Saúde':
+        return <Heartbeat size={30} />;
+      case 'Serviços Domésticos':
+        return <PaintBrushHousehold size={30} />;
+      case 'Reforma e reparos':
+        return <Wrench size={30} />;
+    }
+  };
+
   return (
     <Box
       id="card"
       display={'flex'}
       flexDirection="row"
       component={'div'}
-      gap={5}
+      gap={2}
+      justifyContent={'center'}
       marginTop={5}
     >
-      <C.Card>
-        <Desktop size={30} />
-        <Typography variant="subtitle1">Tecnologia</Typography>
-      </C.Card>
-      <C.Card>
-        <Desktop size={30} />
-        <Typography variant="subtitle1">Assistência técnica</Typography>
-      </C.Card>
-      <C.Card>
-        <Desktop size={30} />
-        <Typography variant="subtitle1">Reformas</Typography>
-      </C.Card>
-      <C.Card>
-        <Desktop size={30} />
-        <Typography variant="subtitle1">Desemtupimentos</Typography>
-      </C.Card>
-      <C.Card>
-        <Desktop size={30} />
-        <Typography variant="subtitle1">Jardim</Typography>
-      </C.Card>
-      <C.Card>
-        <Desktop size={30} />
-        <Typography variant="subtitle1">Saúde</Typography>
-      </C.Card>
-      <C.Card>
-        <Desktop size={30} />
-        <Typography variant="subtitle1">Serviços domésticos</Typography>
-      </C.Card>
+      {categorias?.map((categoria: TCategoria) => (
+        <C.Card
+          key={categoria.id}
+          onClick={() => cardCategoryHandler(categoria.nome)}
+        >
+          <Box component={'div'}>{getCardIcon(categoria.nome)}</Box>
+          <Typography variant="subtitle1">{categoria.nome}</Typography>
+        </C.Card>
+      ))}
     </Box>
   );
 };

@@ -1,9 +1,9 @@
 import { api } from '@api/api';
 
-export const getAllServices = () => {
+export const getAllCategories = () => {
   const accessToken = localStorage.getItem('accessToken');
 
-  return api.get('/servico/servicos');
+  return api.get('/categoria/categorias');
 
   console.log('Error');
 };
