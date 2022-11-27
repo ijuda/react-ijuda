@@ -1,6 +1,5 @@
 import { getAllCategories } from '@api/services/getAllCategories';
 import { RouteCodes } from '@constants/routes';
-import { Computer } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import {
@@ -71,7 +70,7 @@ const ServicesContainer = () => {
           <Box
             component={'div'}
             key={categoria.id}
-            width={130}
+            width={120}
           >
             <Link
               to={`${RouteCodes.SERVICES}/${textTransformHandler(
@@ -81,7 +80,7 @@ const ServicesContainer = () => {
             >
               <C.ServicesListItem>
                 <Box component={'div'}>{getCardIcon(categoria.nome)}</Box>
-                <Typography sx={{ fontWeight: 'bold', fontSize: 16 }}>
+                <Typography sx={{ fontWeight: 'bold', fontSize: 14 }}>
                   {categoria.nome}
                 </Typography>
               </C.ServicesListItem>
