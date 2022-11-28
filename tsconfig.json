@@ -12,7 +12,8 @@
       "@context/*": ["./context/*"],
       "@services/*": ["./services/*"],
       "@api/*": ["./api/*"],
-      "@images/*": ["./public/*"]
+      "@images/*": ["./public/*"],
+      "@utils/*": ["./utils/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

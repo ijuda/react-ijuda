@@ -2,6 +2,7 @@ import { api } from '@api/api';
 import jwtDecode from 'jwt-decode';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { showToastMessage } from '@utils/toastMessage';
 import { AuthContextType, SignInCredentials } from '../../types';
 
 export const AuthContext = createContext<AuthContextType>(
@@ -39,7 +40,12 @@ const AuthProvider = ({ children }: Props) => {
         JSON.stringify(response.data.access_token)
       );
       navigate('/services');
+      showToastMessage({
+        message: 'Login efetuado com sucesso!',
+        type: 'success',
+      });
     } catch (err) {
+      showToastMessage({ message: 'Credenciais inválidas', type: 'error' });
       console.log(err);
     }
   };

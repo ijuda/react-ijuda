@@ -13,6 +13,7 @@ export const Title = styled.h1`
 export const Subtitle = styled.p`
   font-size: 2rem;
   margin-top: 3rem;
+  line-height: 1.3;
 `;
 
 export const HomeCardContainer = styled.div`
