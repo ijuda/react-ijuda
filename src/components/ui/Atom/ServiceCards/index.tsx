@@ -36,7 +36,7 @@ export const ServiceCards = ({
   return (
     <Grid item>
       <Card
-        sx={{ width: 250, display: 'flex' }}
+        sx={{ width: 300, display: 'flex' }}
         variant="outlined"
       >
         <div style={{ backgroundColor: 'orange', width: 4 }}></div>
@@ -46,13 +46,13 @@ export const ServiceCards = ({
               variant="h5"
               component="div"
             >
-              {categoriaName}
+              {serviceName}
             </Typography>
             <Typography
               sx={{ mb: 1.5 }}
               color="text.secondary"
             >
-              {serviceName}
+              {categoriaName}
             </Typography>
             <Typography
               fontSize={15}
