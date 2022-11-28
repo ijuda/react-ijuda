@@ -6,8 +6,13 @@ import Layout from '@components/ui/Organism/Layout';
 import { Search } from '@mui/icons-material';
 import {
   Button,
+  FormControl,
   Grid,
   InputAdornment,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
   Skeleton,
   TextField,
   Typography,
@@ -25,6 +30,7 @@ const Services = () => {
   const [searchString, setSearchString] = useState<any>(id ? id : '');
   const [loading, setLoading] = useState(true);
   const [servicosValue, setServicosValue] = useState<TCategoria[]>();
+  const [cidadeFilter, setCidadeFilter] = useState<string>('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,8 +46,10 @@ const Services = () => {
     getServices();
   }, []);
 
-  const servicosFiltro = prestadoresServico?.filter(
-    (prestadorServico) =>
+  console.log(cidadeFilter === '');
+
+  const servicosFiltro = prestadoresServico?.filter((prestadorServico) => {
+    return (
       prestadorServico?.servicos[0]?.nome
         .toLowerCase()
         .normalize('NFD')
@@ -62,10 +70,16 @@ const Services = () => {
             .replace(/[\u0300-\u036f]/g, '')
             .toLowerCase()
         )
-  );
+    );
+  });
 
   const cardCategoryHandler = (value: string) => {
     setSearchString(value);
+  };
+
+  const selectChangeHandler = (event: SelectChangeEvent) => {
+    console.log(event.target.value);
+    setCidadeFilter(event.target.value);
   };
 
   return (
