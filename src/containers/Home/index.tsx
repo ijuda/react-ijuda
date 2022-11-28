@@ -38,10 +38,11 @@ const Home = () => {
               </C.Title>
               <C.Subtitle>
                 {' '}
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Laboriosam illum repudiandae, nemo voluptate esse repellat neque
-                rerum maiores recusandae sunt ea magni! Enim placeat
-                necessitatibus reiciendis fugit adipisci soluta ut?{' '}
+                Está preparado para alavancar a sua quantidade de servicos? Você
+                está querendo encontrar um servico de qualidade de uma forma
+                rápida, simples e eficaz? Pois sejam bem vindos ao{' '}
+                <strong style={{ color: 'orange' }}>IJUDA!</strong> A melhor
+                solucao em servicos do mercado, conte conosco!
               </C.Subtitle>
               <Button
                 variant="contained"
