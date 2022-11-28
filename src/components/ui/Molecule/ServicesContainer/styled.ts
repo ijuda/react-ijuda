@@ -19,7 +19,7 @@ export const ServicesList = styled.ul`
   align-items: center;
   display: flex;
   flex-direction: row;
-  gap: 3rem;
+  gap: 2rem;
   padding: 40px;
 `;
 
@@ -32,7 +32,7 @@ export const ServicesListItem = styled.li`
   padding: 20px;
   border: 2px solid #fff;
   border-radius: 10px;
-  height: 130px;
+  height: 120px;
 
   &:hover {
     background-color: ${orange[800]};
