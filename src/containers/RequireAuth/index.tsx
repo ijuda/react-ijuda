@@ -8,7 +8,6 @@ type Props = {
 
 const RequireAuth = ({ children }: Props) => {
   const { isAuthenticated } = useAuth();
-  const navigate = useNavigate();
 
   if (isAuthenticated) {
     return children;

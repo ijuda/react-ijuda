@@ -31,6 +31,7 @@ export default defineConfig({
       { find: '@services', replacement: resolve(__dirname, './src/services') },
       { find: '@api', replacement: resolve(__dirname, './src/api') },
       { find: '@images', replacement: resolve(__dirname, './public/images') },
+      { find: '@utils', replacement: resolve(__dirname, './src/utils') },
     ],
   },
 });

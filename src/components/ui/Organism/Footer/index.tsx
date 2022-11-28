@@ -29,24 +29,24 @@ const Footer = () => {
               <Typography variant="h5">Serviços</Typography>
               <C.ListBox>
                 <C.ListItem>
-                  <Link to={RouteCodes.HOME}>
+                  <Link to={`${RouteCodes.SERVICES}/Assistência Técnica`}>
                     <Typography variant="subtitle1">
                       Assistência Técnica
                     </Typography>
                   </Link>
                 </C.ListItem>
                 <C.ListItem>
-                  <Link to={RouteCodes.LOGIN}>
+                  <Link to={`${RouteCodes.SERVICES}/Informática`}>
                     <Typography variant="subtitle1">Informática</Typography>
                   </Link>
                 </C.ListItem>
                 <C.ListItem>
-                  <Link to={RouteCodes.TRABALHE_CONOSCO}>
+                  <Link to={`${RouteCodes.SERVICES}/Encanador`}>
                     <Typography variant="subtitle1">Encanador</Typography>
                   </Link>
                 </C.ListItem>
                 <C.ListItem>
-                  <Link to={RouteCodes.SAIBA_MAIS}>
+                  <Link to={`${RouteCodes.SERVICES}/Design`}>
                     <Typography variant="subtitle1">Design</Typography>
                   </Link>
                 </C.ListItem>
