@@ -59,7 +59,7 @@ const Nav = ({ signOut, isAuthenticated, currentUser }: HeaderType) => {
                   src={
                     currentUser.profileImage
                       ? currentUser.profileImage
-                      : getProfileImage(currentUser.nome)
+                      : getProfileImage(currentUser.user_name)
                   }
                   sx={{ width: 80, height: 80, cursor: 'pointer' }}
                 ></Avatar>
