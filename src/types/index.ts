@@ -21,7 +21,7 @@ type HeaderType = {
 
 type UserType = {
   id: string;
-  nome: string;
+  user_name: string;
   email: string;
   profileImage?: any;
 };

@@ -71,7 +71,7 @@ const ServicesContainer = () => {
           <Box
             component={'div'}
             key={categoria.id}
-            width={130}
+            width={120}
           >
             <Link
               to={`${RouteCodes.SERVICES}/${textTransformHandler(
@@ -81,7 +81,7 @@ const ServicesContainer = () => {
             >
               <C.ServicesListItem>
                 <Box component={'div'}>{getCardIcon(categoria.nome)}</Box>
-                <Typography sx={{ fontWeight: 'bold', fontSize: 16 }}>
+                <Typography sx={{ fontWeight: 'bold', fontSize: 15 }}>
                   {categoria.nome}
                 </Typography>
               </C.ServicesListItem>
